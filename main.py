@@ -52,4 +52,4 @@ class Home(Resource):
 
 api.add_resource(Home, '/')
 if __name__ == '__main__':
-    app.run(debug=DEBUG)
+    app.run(debug=DEBUG, load_dotenv=True)
