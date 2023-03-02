@@ -10,6 +10,8 @@ def fail(error, status: int = 400):
         }
     )
     response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Headers', '*')
+    response.headers.add('Access-Control-Allow-Methods', '*')
     response.status_code = status
     return response
 
@@ -23,5 +25,7 @@ def success(data, status: int = 200):
         }
     )
     response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Headers', '*')
+    response.headers.add('Access-Control-Allow-Methods', '*')
     response.status_code = status
     return response
