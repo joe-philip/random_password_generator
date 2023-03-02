@@ -4,4 +4,4 @@ from dotenv import load_dotenv
 
 load_dotenv('.env')
 
-DEBUG = environ.get('DEBUG')
+DEBUG = bool(int(environ.get('DEBUG')))
