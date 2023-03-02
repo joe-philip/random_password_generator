@@ -15,8 +15,9 @@ ORIGINS = environ.get('CORS_ORIGIN_WHITELIST').split(',')
 
 
 app = Flask('main')
+app.config['CORS_ORIGINS']=ORIGINS
 api = Api(app)
-cors = CORS(app, origins=ORIGINS)
+cors = CORS(app)
 
 
 class Home(Resource):
