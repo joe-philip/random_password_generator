@@ -9,6 +9,7 @@ def fail(error, status: int = 400):
             'error': error
         }
     )
+    response.headers.add('Access-Control-Allow-Origin', '*')
     response.status_code = status
     return response
 
@@ -21,6 +22,6 @@ def success(data, status: int = 200):
             'data': data
         }
     )
-    response.status_code = status
     response.headers.add('Access-Control-Allow-Origin', '*')
+    response.status_code = status
     return response
