@@ -1,21 +1,15 @@
-from os import environ
+import settings
 from random import choice, shuffle
 
-from dotenv import load_dotenv
 from flask import Flask, request
 from flask_cors import CORS
 from flask_restful import Api, Resource
 
 from utils import fail, success
 
-load_dotenv('.env')
-
-DEBUG = bool(int(environ.get('DEBUG')))
-ORIGINS = environ.get('CORS_ORIGIN_WHITELIST').split(',')
-
 
 app = Flask('main')
-app.config['CORS_ORIGINS']=ORIGINS
+app.config['CORS_ORIGINS'] = settings.ORIGINS
 api = Api(app)
 cors = CORS(app)
 
@@ -53,4 +47,4 @@ class Home(Resource):
 
 api.add_resource(Home, '/')
 if __name__ == '__main__':
-    app.run(debug=DEBUG, load_dotenv=True)
+    app.run(debug=settings.DEBUG, load_dotenv=True)
