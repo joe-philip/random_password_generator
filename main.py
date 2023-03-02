@@ -28,7 +28,7 @@ class Home(Resource):
             'lower-case', 'numeric', 'symbols'
         }
         if not True in form_data.values():
-            return fail('Select atleast one'), 400
+            return fail('Select atleast one')
         if set(form_data.keys()).issubset(ALLOWED_KEYS) and 'password-length' in form_data.keys():
             SYMBOLS = tuple(range(33, 48))
             DIGITS = tuple(range(48, 58))
@@ -47,8 +47,8 @@ class Home(Resource):
             password = password[:form_data.get('password-length')]
             password_list = list(password)
             shuffle(password_list)
-            return success(''.join(password_list)), 200
-        return fail('Invalid keys'), 400
+            return success(''.join(password_list))
+        return fail('Invalid keys')
 
 
 api.add_resource(Home, '/')
